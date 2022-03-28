@@ -3,7 +3,7 @@
 import math
 
 class Solution(object):
-    def searchInsert(self, nums, target, original_index = 0):
+    def searchInsert(self, nums, target):
         """
         :type nums: List[int]
         :type target: int
@@ -16,23 +16,56 @@ class Solution(object):
         #         return i
         #     if i == len(nums) - 1:
         #         return i + 1
+        start = 0
+        end = len(nums)
         
-        index = math.floor(len(nums) / 2)
-        if len(nums) == 1:
-            if nums[index] < target:
-                return index + 1
-            if nums[index] > target:
-                # ???
-                pass
-        if nums[index] == target:
-            return index
-        if nums[index] > target:
-            original_index = index
-            left_half = nums[0 : index]
-            index = len(nums)
-        if nums[index] < target:
-            original_index = index
-            right_half = nums[index : -1]
+        while start <= end:
+            middle_float = start + end
+            middle = (start + end) / 2
+            # Target found
+            print(middle)
+            if nums[middle] == target:
+                return middle
+            if nums[middle] > target:
+    #             search left half
+                if start >= end:
+                    return middle
+                else:
+                    # return searchInsert(nums, target, start, middle-1)
+                    end = middle - 1
+            if nums[middle] < target:
+    #             search right half
+                if start >= end:
+                    return middle + 1
+                else:
+                    # return searchInsert(nums, target, middle+1, end)
+                    start = middle + 1
+        if nums[middle] > target:
+            if start > end:
+                return middle
+            else:
+                end = middle - 1
+        if nums[middle] < target:
+#             search right half
+            if start > end:
+                return middle + 1
+            else:
+                start = middle + 1
+    
+        # if len(nums) == 1:
+        #     if nums[index] < target:
+        #         return index + 1
+        #     if nums[index] > target:
+        #         # ???
+        # if nums[index] == target:
+        #     return index
+        # if nums[index] > target:
+        #     original_index = index
+        #     left_half = nums[0 : index]
+        #     index = len(nums)
+        # if nums[index] < target:
+        #     original_index = index
+        #     right_half = nums[index : -1]
             
 '''
 [1,3,5,6]
