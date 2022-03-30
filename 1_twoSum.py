@@ -8,6 +8,10 @@ Runtime: 43 ms, faster than 94.85% of Python online submissions for Two Sum.
 Memory Usage: 14.3 MB, less than 45.87% of Python online submissions for Two Sum.
 Runtime: 40 ms, faster than 97.93% of Python online submissions for Two Sum.
 Memory Usage: 14.5 MB, less than 23.18% of Python online submissions for Two Sum.
+
+GIVEN INPUT: list of numbers, and a target number
+OUTPUT: a list pair of indexes (ex. [i, j])
+
  """
 
 class Solution(object):
