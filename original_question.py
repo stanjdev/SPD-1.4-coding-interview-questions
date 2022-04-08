@@ -1,11 +1,8 @@
 """ 
 def isAnagram(list_of_strings):
   sort both words, and compare and if they're the same, return true
-
+  OR
   histogram both words, return if histograms are exactly the same
-
-  
-
 
 
 Given input: list_of_strings = ["listen", "silent"]
